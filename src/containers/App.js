@@ -5,15 +5,27 @@ import Cockpit from '../components/Cockpit/Cockpit';
 // import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: '1', name: "Rivu", age: 28 },
-      { id: '2', name: "Max", age: 29 },
-      { id: '3', name: "Endel", age: 69 }
-    ],
-    otherState: "some other value",
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('[App.js] inside constructor', props);
+    this.state = {
+      persons: [
+        { id: '1', name: "Rivu", age: 28 },
+        { id: '2', name: "Max", age: 29 },
+        { id: '3', name: "Endel", age: 69 }
+      ],
+      otherState: "some other value",
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] inside compoentDidMount');
+  }
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -48,6 +60,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('App.js inside render()');
     let persons = null;
 
     if (this.state.showPersons) {
