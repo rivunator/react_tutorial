@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Cockpit.module.css';
-import Auxillary from '../../hoc/Auxillary'
+//import Auxillary from '../../hoc/Auxillary'
 
 const cockpit = (props) => {
 
